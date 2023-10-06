@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    
+    <title>【数据治理】华为数据治理案例 - Hexo</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="数据治理思考数据问题: 数据管理责任不清晰,造成数据问题无人决策解决;  数据多源头,造成数据不一致,不可信;  数据大量搬家造成IT重复投资;  数据无定义造成难于理解、难于使用;  各部门发布报告,统计口径不一致,困扰业务决策;  数据形态多样化,数据量迅猛增长,数据处理逻辑复杂,投资大;   华为在数字化转型过程中,解决了上述问题,因为华为认识到只有建立了完整的数据治理体系,保证数据内容的质">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【数据治理】华为数据治理案例">
+<meta property="og:url" content="http://example.com/2023/09/09/2023.09.09/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据治理思考数据问题: 数据管理责任不清晰,造成数据问题无人决策解决;  数据多源头,造成数据不一致,不可信;  数据大量搬家造成IT重复投资;  数据无定义造成难于理解、难于使用;  各部门发布报告,统计口径不一致,困扰业务决策;  数据形态多样化,数据量迅猛增长,数据处理逻辑复杂,投资大;   华为在数字化转型过程中,解决了上述问题,因为华为认识到只有建立了完整的数据治理体系,保证数据内容的质">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://wei-blog.oss-cn-beijing.aliyuncs.com/blog/%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E6%96%B9%E9%9D%A2.png">
+<meta property="og:image" content="https://wei-blog.oss-cn-beijing.aliyuncs.com/blog/%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E6%A1%86%E6%9E%B6.png">
+<meta property="og:image" content="https://wei-blog.oss-cn-beijing.aliyuncs.com/blog/%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%BB%87.png">
+<meta property="article:published_time" content="2023-09-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-09-15T13:01:27.000Z">
+<meta property="article:author" content="JonhsonLiam">
+<meta property="article:tag" content="Interview">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wei-blog.oss-cn-beijing.aliyuncs.com/blog/%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E6%96%B9%E9%9D%A2.png">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1696601586508">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1696601586508">
+
+    
+        
+            <link rel="stylesheet" href="/custom.css?v=1696601586508">
+        
+    
+
+    
+<script src="/lib/mdui_043tiny/mdui.js" async></script>
+<script src="/lib/fancybox/fancybox.umd.js" async></script>
+
+
+    <script async src="/js/app.js?v=1696601586508"></script>
+    
+     
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4D4ZJ9G024"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+
+  gtag("config", "G-4D4ZJ9G024");
+</script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="mdui-drawer-body-left">
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" 
+            style="background-image: url(https://i.dawnlab.me/b5a7e61560facdd5b8aa9683fce147d7.png)"
+        ></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="JonhsonLiam" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="JonhsonLiam"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="JonhsonLiam">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="JonhsonLiam" alt="JonhsonLiam">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>13</div>
+        <div><span>Tags</span>4</div>
+        <div><span>Categories</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/donate.html" title="给我赞助">
+            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
+            <div class="mdui-list-item-content">
+                给我赞助
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博主">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博主
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+        
+            
+            <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+            </form>
+         
+    </div>
+</div>
+
+
+
+
+        
+            
+            <div class="nexmoe-widget-wrap">
+	<div class="nexmoe-widget nexmoe-social">
+		<a
+			class="mdui-ripple"
+			href="https://jq.qq.com/?_wv=1027&k=5CfKHun"
+			target="_blank"
+			mdui-tooltip="{content: 'QQ群'}"
+			style="
+				color: rgb(249, 174, 8);
+				background-color: rgba(249, 174, 8, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-QQ"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://space.bilibili.com/20238211"
+			target="_blank"
+			mdui-tooltip="{content: '哔哩哔哩'}"
+			style="
+				color: rgb(231, 106, 141);
+				background-color: rgba(231, 106, 141, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-bilibili"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/nexmoe/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-github"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://www.zhihu.com/people/nexmoe"
+			target="_blank"
+			mdui-tooltip="{content: '知乎'}"
+			style="
+				color: rgb(30, 136, 229);
+				background-color: rgba(30, 136, 229, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-zhihu"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://twitter.com/nexmoe"
+			target="_blank"
+			mdui-tooltip="{content: 'Twitter'}"
+			style="
+				color: rgb(59, 151, 239);
+				background-color: rgba(59, 151, 239, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-twitter"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://nexmoe.com/atom.xml"
+			target="_blank"
+			mdui-tooltip="{content: 'RSS'}"
+			style="
+				color: rgb(247, 132, 34);
+				background-color: rgba(247, 132, 34, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-rss"
+			></i> </a
+		>
+	</div>
+</div>
+
+        
+            
+            
+
+        
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/Flink/" style="font-size: 20px;">Flink</a> <a href="/tags/HQL/" style="font-size: 10px;">HQL</a> <a href="/tags/Interview/" style="font-size: 13.33px;">Interview</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a>
+    </div>
+    
+      <script>
+        var maxTagcloud = parseInt(17);
+        var tags_length = parseInt(4);
+        var tags_arr = [];
+        for(var i = 0; i < tags_length; i++){
+          tags_arr.push(i);
+        }
+        tags_arr.sort(function (l, r) {
+          return Math.random() > 0.5 ? -1 : 1;
+        });
+        tags_arr = tags_arr.slice(0, maxTagcloud < tags_length ? tags_length - maxTagcloud : 0);
+        for(var tag_i = 0; tag_i < tags_arr.length; tag_i++){
+          document.getElementById("randomtagcloud").children[tags_arr[tag_i]].style.display = 'none';
+        }
+      </script>
+    
+  </div>
+
+        
+            
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Archive</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">13</span></li></ul>
+    </div>
+  </div>
+
+
+
+        
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Recent Posts</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/10/06/2023.09.17/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/16/2023.09.16/">【FLink教育】Hudi整合Hive实现湖仓一体</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/15/2023.09.15/">【FLink教育】FlinkCDC介绍&amp;集成Hive</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/14/2023.09.14/">【FLink教育】Flink技术选型</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/13/2023.09.13/">ClickHouse全面解析</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+        
+            
+            <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-link">
+		<ul>
+        
+            <li>
+                <a href="https://xiaoshu.app/" target="_blank" >
+                    <img src="https://xsm.nexmoe.com/images/Infinite/Snipaste_2022-05-18_20-46-50.png" alt="小舒同学"></img>
+                    <p>小舒同学</p>
+                </a>
+            </li>
+        
+            <li>
+                <a href="https://nexmoe.com/" target="_blank" >
+                    <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="折影轻梦"></img>
+                    <p>折影轻梦</p>
+                </a>
+            </li>
+        
+		</ul>
+    </div>
+</div>
+<style>
+.nexmoe-widget-wrap .nexmoe-link ul li a {
+    text-align : center;
+}
+.nexmoe-widget-wrap .nexmoe-link ul li a img {
+    max-width : 100%;
+}
+.nexmoe-widget-wrap .nexmoe-link ul li a p {
+    margin: 10px 0;
+}
+</style>
+
+        
+    </aside>
+    <div class="nexmoe-copyright">
+        &copy; 2023 JonhsonLiam
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        <br><a target="_blank" href="https://beian.miit.gov.cn/">鄂ICP备2020018486号</a>
+<br><a target="_blank" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral">
+<img src="https://i.dawnlab.me/c0268c1e6cfd0863d6ba35be1575941a.png" width="150px"></a>
+
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+    <div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://i.dawnlab.me/b5a7e61560facdd5b8aa9683fce147d7.png" alt="【数据治理】华为数据治理案例" loading="lazy">
+            <h1>【数据治理】华为数据治理案例</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月09日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="数据治理思考"><a href="#数据治理思考" class="headerlink" title="数据治理思考"></a><font size='5' face='华文楷体' color='red' >数据治理思考</font></h1><h2 id="数据问题"><a href="#数据问题" class="headerlink" title="数据问题:"></a>数据问题:</h2><ul>
+<li>数据管理责任不清晰,造成数据问题无人决策解决; </li>
+<li>数据多源头,造成数据不一致,不可信; </li>
+<li>数据大量搬家造成IT重复投资; </li>
+<li>数据无定义造成难于理解、难于使用; </li>
+<li>各部门发布报告,统计口径不一致,困扰业务决策; </li>
+<li>数据形态多样化,数据量迅猛增长,数据处理逻辑复杂,投资大;</li>
+</ul>
+<blockquote>
+<p>华为在数字化转型过程中,解决了上述问题,因为华为认识到<code>只有建立了完整的数据治理体系,保证数据内容的质量,才能够真正有效地挖掘企业内部的数据价值,对外提高竞争力</code>。</p>
+</blockquote>
+<h1 id="数据治理模块域"><a href="#数据治理模块域" class="headerlink" title="数据治理模块域"></a><font size='5' face='华文楷体' color='red' >数据治理模块域</font></h1><h2 id="数据治理主要专注于如下模块域"><a href="#数据治理主要专注于如下模块域" class="headerlink" title="数据治理主要专注于如下模块域:"></a>数据治理主要专注于如下模块域:</h2><ul>
+<li><p>数据集成 </p>
+<blockquote>
+<p>数据集成用来完成数据入湖动作,不是简单的数据搬家,而是按照一定的方法论 进行数据备份。数据入湖的前提条件是满足6项数据标准,包括:明确数据 Owner、发布数据标准、定义数据密级、明确数据源、数据质量评估、元数据注 册。此标准由数据代表在入湖前完成梳理并在数据治理平台上进行资产注册。 </p>
+</blockquote>
+</li>
+<li><p>数据标准 </p>
+<blockquote>
+<p>数据标准管理着重建立统一的数据语言,L1到L5数据层级业务对象的定义是数据 </p>
+<p>标准的载体,并对应发布包括L1到L5数据层级的数据标准。各业务对象对应物理 </p>
+<p>实现的IT系统需发布相应的数据字典并进行数据源认证。而对于梳理出来,但没 </p>
+<p>有落IT系统的业务对象,需在后继的开发中进行数字化落地。 </p>
+</blockquote>
+</li>
+<li><p>数据开发 </p>
+<blockquote>
+<p>数据开发是编排、调度和运维的中心,数据开发是一个提供分析、设计、实施、 部署及维护一站式数据解决方案,完成数据加工、转换和质量提升等。数据开发 屏蔽了各种数据存储的差异,一站式满足从数据集成、数据清洗&#x2F;转换、数据质量 监控等全流程的数据处理,是数据治理实施的主战场。 </p>
+</blockquote>
+</li>
+<li><p>数据质量 </p>
+<blockquote>
+<p>数据质量管理的目标在于保证数据满足使用的要求。数据标准是衡量数据质量最基本的基准。数据质量要求各业务部门对相应数据领域的数据质量全权负责,按业务需求设计数据质量标准,制定数据质量管控目标,并遵循企业数据治理要求进行数据质量度量,制定符合各自业务情况的数据质量政策及数据质量相关的改进计划,持续进行数据质量管控。</p>
+</blockquote>
+</li>
+<li><p>数据资产 </p>
+<blockquote>
+<p>数据资产包括业务资产、技术资产、指标资产等。数据资产管理是数据治理的重要支撑手段,核心是构建企业级的元数据管理中心、建立数据资产目录、建立数据搜索引擎、实现数据血缘和数据全景可视。其中元数据包括业务元数据、技术<br>元数据和操作元数据,要求将企业所有概念数据模型、逻辑数据模型以及物理数据模型系统化地管理起来,同时建设企业数据地图及数据血缘关系,为数据调用、数据服务、数据运营及运维提供强有力的信息支撑。</p>
+</blockquote>
+</li>
+<li><p>数据服务 </p>
+<blockquote>
+<p>数据服务通过在整个企业范围统一数据服务设计和实现的规范并进行数据服务生 命周期管理,集约管理数据服务并减少数据调用和集成的开发成本。</p>
+</blockquote>
+</li>
+<li><p>数据安全 </p>
+<blockquote>
+<p>由于企业使用的数据资源,既有来自于内部业务系统,所有权属于企业的数据, 同时也有来自外部的数据,必须将数据安全纳入数据治理的范畴,对所有企业数 据要求依据数据安全等级定义进行数据安全定级,在数据产生、传输、存储和使 用的过程中进行必要的数据安全访问控制,同时对数据相应的CRUD活动均需产生 日志以完成安全审计。 </p>
+</blockquote>
+</li>
+<li><p>主数据 </p>
+<blockquote>
+<p>主数据管理是数据标准落地和提升数据质量的重要手段,是企业级数据治理的重 要范畴,其目标在于保证在企业范围内重要业务实体数据的一致(定义和实际物理 数据的一致)。主数据管理首先进行企业主数据的识别,然后对已识别主数据按照 主数据规范要求进行数据治理和IT改造,以支撑企业业务流和工具链的打通和串联。 </p>
+</blockquote>
+</li>
+<li><p>管理中心 </p>
+<blockquote>
+<p>数据治理的开展离不开组织、流程和政策的建设,管理中心也管理着数据治理过程中公共核心的统一数据源、数据驾驶舱等,满足不同角色的用户拥有个性化的工作台。</p>
+<p><img src="https://wei-blog.oss-cn-beijing.aliyuncs.com/blog/%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E6%96%B9%E9%9D%A2.png"></p>
+</blockquote>
+</li>
+</ul>
+<h1 id="数据治理实践"><a href="#数据治理实践" class="headerlink" title="数据治理实践"></a>数据治理实践</h1><blockquote>
+<p>华为数据治理的规范流程建设,<code>完成了从数据产生、数据整合、数据分析与数据消费 全价值流的规则制定</code>。</p>
+<p>华为数据治理组织实践,建立实体化的数据管理组织,虚线向 公司数据管理部汇报,同时组建了跨领域数据联合作战团队。</p>
+<p>华为已建立统一的数据 分类管理框架,指导各领域进行分类管理。</p>
+<p>华为信息架构框架,通过政策发文明确信 息架构的定义和构成要素,在公司层面建立统一的架构方法。基于ISO8000标准,华 为建立了数据质量管理框架和运作机制,每年例行开展两次公司级数据质量度量,从 “设计“与”执行”两个方面度量数据质量,由公司数据Owner定期发布公司数据质 量报告,牵引各业务领域持续改进数据质量。</p>
+</blockquote>
+<h1 id="数据治理框架"><a href="#数据治理框架" class="headerlink" title="数据治理框架"></a>数据治理框架</h1><h2 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h2><p><img src="https://wei-blog.oss-cn-beijing.aliyuncs.com/blog/%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E6%A1%86%E6%9E%B6.png"></p>
+<h2 id="人员分配"><a href="#人员分配" class="headerlink" title="人员分配"></a>人员分配</h2><blockquote>
+<p>在战略层面，由数据治理Sponsor和各部门负责人组成的数据治理领导组制定数据治理的战略方向，以构建数据文化和氛围为纲，整体负责数据治理工作的开展、政策的推广和执行，并作为数据治理问题的最终决策组织解决争议，监控和监督数据治理工作的绩效，并确保数据治理工作预算支持。数据治理委员会和各领域数据治理工作组是数据治理战略在运作层面具体的实施团队。其中：</p>
+</blockquote>
+<h3 id="数据治理委员会："><a href="#数据治理委员会：" class="headerlink" title="数据治理委员会："></a>数据治理委员会：</h3><p>由数据治理负责人、数据治理专家和数据架构专家团组成，面向企业进行数据治理工作的统筹并提供工作指导，在整个企业范围定期沟通数据治理工作，形成数据质量精细化管控文化。根据数据治理领导组的愿景和长期目标，建立和管理数据治理流程、阶段目标和计划，设计和维护数据治理方法、总则、工具和平台，协助各数据领域工作组实施数据治理工作，对整体数据治理工<br>作进行度量和汇报，并对跨领域的数据治理问题和争议进行解决和决策。</p>
+<h3 id="各领域数据治理工作组："><a href="#各领域数据治理工作组：" class="headerlink" title="各领域数据治理工作组："></a>各领域数据治理工作组：</h3><p>在各领域数据范围内进行数据治理的工作，依据数据治理委员会制定的数据治理方法和总则，制定本领域数据治理目标和工作计划，负责领域数据资产的看护，维护更新相应数据标准和及相关元数据，设计本领域数据度量和规则，监控收集数据质量问题并持续改进提升，主动升级数据相关问题。最终完成领域内数据资产的看护，并支撑数据治理目标的达成。<code>领域数据治理工作组由数据Owner、数据代表、数据管家、数据专员和数据架构师组成。</code>其中：</p>
+<h3 id="数据Owner-Data-Owners-：数据Owner是领域数据治理工作的责任人。"><a href="#数据Owner-Data-Owners-：数据Owner是领域数据治理工作的责任人。" class="headerlink" title="数据Owner (Data Owners)：数据Owner是领域数据治理工作的责任人。"></a>数据Owner (Data Owners)：数据Owner是领域数据治理工作的责任人。</h3><ul>
+<li>制定本领域数据治理的目标，工作计划和执行优先级。</li>
+<li>建立数据治理责任机制，将本领域的数据治理工作分解到工作组成员,并跟进</li>
+<li>建立和推动领域数据文化和氛围。</li>
+</ul>
+<h3 id="数据代表-Data-Representatives-数据代表是领域数据治理工作的专家带头人。"><a href="#数据代表-Data-Representatives-数据代表是领域数据治理工作的专家带头人。" class="headerlink" title="数据代表 (Data Representatives)数据代表是领域数据治理工作的专家带头人。"></a>数据代表 (Data Representatives)数据代表是领域数据治理工作的专家带头人。</h3><ul>
+<li><p>深刻理解数据工作的目标、方法、规则、工具，并通过识别关键业务流程和IT系统，对本领域数据治理的路标和工作计划进行细化并排序，最终管理执行。</p>
+</li>
+<li><p>作为本领域数据治理专家，管理并解决问题和争议，必要时提交数据Owner进行裁决。</p>
+</li>
+<li><p>对业务环节数据的完整性、及时性、准确性、一致性、唯一性、有效性负责，确保行为即记录，记录即数据，并依据数据质量规格对本领域数据进行度量和报告。</p>
+</li>
+<li><p>落实本领域信息架构的建设和遵从，负责本领域数据资产的看护，维护相应数据标准和数据目录并更新发布。</p>
+</li>
+<li><p>承接上下游数据需求，并主动根据领域内应用场景和业务需求识别数据需求，对需求的实现进行推动和管理。</p>
+</li>
+<li><p>依据相关规定定义本领域数据安全等级，并进行数据授权管理。</p>
+</li>
+</ul>
+<h3 id="数据管家-Data-Stewards-：数据管家是领域数据治理工作的协助者。"><a href="#数据管家-Data-Stewards-：数据管家是领域数据治理工作的协助者。" class="headerlink" title="数据管家 (Data Stewards)：数据管家是领域数据治理工作的协助者。"></a>数据管家 (Data Stewards)：数据管家是领域数据治理工作的协助者。</h3><ul>
+<li>确保领域治理工作的流程和内容规范，符合数据治理要求。</li>
+<li>协助数据代表进行问题跟踪和解决。</li>
+<li>梳理、维护并更新领域数据元数据（业务对象、数据标准、数据模型）。</li>
+<li>推广和维护数据治理工具和平台在本领域的应用。</li>
+</ul>
+<h3 id="数据专员-Data-Specialists-：数据专员是领域数据治理工作的专家团队。"><a href="#数据专员-Data-Specialists-：数据专员是领域数据治理工作的专家团队。" class="headerlink" title="数据专员 (Data Specialists)：数据专员是领域数据治理工作的专家团队。"></a>数据专员 (Data Specialists)：数据专员是领域数据治理工作的专家团队。</h3><p>基于本领域数据治理的工作计划，利用数据专项技能，支撑数据代表完成数据Owner分配的各类数据治理工作。</p>
+<h3 id="数据架构师-Data-Architects-：数据架构师是领域数据治理工作在IT层面的代表。"><a href="#数据架构师-Data-Architects-：数据架构师是领域数据治理工作在IT层面的代表。" class="headerlink" title="数据架构师 (Data Architects)：数据架构师是领域数据治理工作在IT层面的代表。"></a>数据架构师 (Data Architects)：数据架构师是领域数据治理工作在IT层面的代表。</h3><p>开发和维护本领域的数据系统或子系统，确保数据在系统中得以记录，数据标准、数据质量规则、数据安全、主&#x2F;参考数据管理、数据服务在系统中得以实施。</p>
+<p><img src="https://wei-blog.oss-cn-beijing.aliyuncs.com/blog/%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E5%B7%A5%E4%BD%9C%E7%BB%84%E7%BB%87.png"></p>
+
+    <p><img src="https://i.dawnlab.me/53a8c7cf3ad77a0f0a456ce2c6afe88a.png" loading="lazy"></p>
+
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>JonhsonLiam<br>
+        <strong>Link：</strong><a href="http://example.com/2023/09/09/2023.09.09/" title="http:&#x2F;&#x2F;example.com&#x2F;2023&#x2F;09&#x2F;09&#x2F;2023.09.09&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;example.com&#x2F;2023&#x2F;09&#x2F;09&#x2F;2023.09.09&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/Interview/" rel="tag">Interview</a>
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1696601586271"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          请在你的配置文件中设置 slotComment
+
+      </div>
+  
+</div>
+</div>
+        <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E6%80%9D%E8%80%83"><span class="toc-number">1.</span> <span class="toc-text">数据治理思考</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">数据问题:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E6%A8%A1%E5%9D%97%E5%9F%9F"><span class="toc-number">2.</span> <span class="toc-text">数据治理模块域</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E4%B8%BB%E8%A6%81%E4%B8%93%E6%B3%A8%E4%BA%8E%E5%A6%82%E4%B8%8B%E6%A8%A1%E5%9D%97%E5%9F%9F"><span class="toc-number">2.1.</span> <span class="toc-text">数据治理主要专注于如下模块域:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E5%AE%9E%E8%B7%B5"><span class="toc-number">3.</span> <span class="toc-text">数据治理实践</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E6%A1%86%E6%9E%B6"><span class="toc-number">4.</span> <span class="toc-text">数据治理框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84"><span class="toc-number">4.1.</span> <span class="toc-text">架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E5%91%98%E5%88%86%E9%85%8D"><span class="toc-number">4.2.</span> <span class="toc-text">人员分配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E5%A7%94%E5%91%98%E4%BC%9A%EF%BC%9A"><span class="toc-number">4.2.1.</span> <span class="toc-text">数据治理委员会：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E9%A2%86%E5%9F%9F%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E5%B7%A5%E4%BD%9C%E7%BB%84%EF%BC%9A"><span class="toc-number">4.2.2.</span> <span class="toc-text">各领域数据治理工作组：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AEOwner-Data-Owners-%EF%BC%9A%E6%95%B0%E6%8D%AEOwner%E6%98%AF%E9%A2%86%E5%9F%9F%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E5%B7%A5%E4%BD%9C%E7%9A%84%E8%B4%A3%E4%BB%BB%E4%BA%BA%E3%80%82"><span class="toc-number">4.2.3.</span> <span class="toc-text">数据Owner (Data Owners)：数据Owner是领域数据治理工作的责任人。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BB%A3%E8%A1%A8-Data-Representatives-%E6%95%B0%E6%8D%AE%E4%BB%A3%E8%A1%A8%E6%98%AF%E9%A2%86%E5%9F%9F%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E5%B7%A5%E4%BD%9C%E7%9A%84%E4%B8%93%E5%AE%B6%E5%B8%A6%E5%A4%B4%E4%BA%BA%E3%80%82"><span class="toc-number">4.2.4.</span> <span class="toc-text">数据代表 (Data Representatives)数据代表是领域数据治理工作的专家带头人。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E5%AE%B6-Data-Stewards-%EF%BC%9A%E6%95%B0%E6%8D%AE%E7%AE%A1%E5%AE%B6%E6%98%AF%E9%A2%86%E5%9F%9F%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E5%B7%A5%E4%BD%9C%E7%9A%84%E5%8D%8F%E5%8A%A9%E8%80%85%E3%80%82"><span class="toc-number">4.2.5.</span> <span class="toc-text">数据管家 (Data Stewards)：数据管家是领域数据治理工作的协助者。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%93%E5%91%98-Data-Specialists-%EF%BC%9A%E6%95%B0%E6%8D%AE%E4%B8%93%E5%91%98%E6%98%AF%E9%A2%86%E5%9F%9F%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E5%B7%A5%E4%BD%9C%E7%9A%84%E4%B8%93%E5%AE%B6%E5%9B%A2%E9%98%9F%E3%80%82"><span class="toc-number">4.2.6.</span> <span class="toc-text">数据专员 (Data Specialists)：数据专员是领域数据治理工作的专家团队。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%9E%B6%E6%9E%84%E5%B8%88-Data-Architects-%EF%BC%9A%E6%95%B0%E6%8D%AE%E6%9E%B6%E6%9E%84%E5%B8%88%E6%98%AF%E9%A2%86%E5%9F%9F%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E5%B7%A5%E4%BD%9C%E5%9C%A8IT%E5%B1%82%E9%9D%A2%E7%9A%84%E4%BB%A3%E8%A1%A8%E3%80%82"><span class="toc-number">4.2.7.</span> <span class="toc-text">数据架构师 (Data Architects)：数据架构师是领域数据治理工作在IT层面的代表。</span></a></li></ol></li></ol></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+    </div>
+    <div id="nexmoe-search-space">
+	<div class="search-container">
+		<div class="search-header">
+			<div class="search-input-container">
+				<input
+					class="search-input"
+					type="text"
+					placeholder="Search"
+					oninput="sinput();"
+				/>
+			</div>
+			<a class="search-close" onclick="sclose();">×</a>
+		</div>
+		<div class="search-body"></div>
+	</div>
+</div>
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2058306854838448" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
